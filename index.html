@@ -7,15 +7,19 @@
 	<center><img id="screen1" src="Home_Lock_Screen.jpg" style="width:320px;height:568;"></center>
 </body>
 <script>
-    $(function() {
-        $("#screen1").hover(
-            function() {
-                $(this).attr("src", "all.gif");
-            },
-            function() {
-                $(this).attr("src", "Home_Lock_Screen.jpg");
-            }                         
-        );                  
-    });
+    $(document).ready(function()
+	{
+	    $(".gif").hover(
+	        function()
+	        {
+	          var src = $(this).attr("src");
+	          $(this).attr("src", src.replace(/\.png$/i, ".gif"));
+	        },
+	        function()
+	        {
+	          var src = $(this).attr("src");
+	          $(this).attr("src", src.replace(/\.gif$/i, ".png"));
+	        });
+	});
 </script>
 </html>
