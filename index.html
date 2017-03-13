@@ -8,11 +8,29 @@ body {
 	color:white;
 	font-family: sansation;
 }
-.info {
+.info1 {
 	float: left;
 	display:none;
 }
-.gif {
+.gif1 {
+	float:right;
+    margin: 0 auto;
+	
+}
+.info2 {
+	float: left;
+	display:none;
+}
+.gif2 {
+	float:right;
+    margin: 0 auto;
+	
+}
+.info3 {
+	float: left;
+	display:none;
+}
+.gif3 {
 	float:right;
     margin: 0 auto;
 	
@@ -29,20 +47,20 @@ body {
 </head>
 <body bgcolor="black">
 	<div class="phone">
-		<img class="gif" src="avg.png" style="width:320px;height:568;">
-		<div class="info">
+		<img class="gif1" src="avg.png" style="width:320px;height:568;">
+		<div class="info1">
 			<p><h4>Total Average</h4>Total Time: 2 hours 42 minutes<br>Home Screen: 43 minutes<br>Phone: 38 minutes<br>Music: 25 minutes<br>Safari: 24 minutes<br>Messages: 20 minutes<br>Instagram: 16 minutes<br>84 Avg Pickups </p>
 		</div>
 	</div>
 	<div class="phone">
-		<img class="gif" src="monday.png" style="width:320px;height:568;">
-		<div class="info">
+		<img class="gif2" src="monday.png" style="width:320px;height:568;">
+		<div class="info2">
 			<p><h4>Average Monday</h4>Total Time: 2 hours 9 minutes<br>Home Screen: 45 minutes<br>Instagram: 22 minutes<br>Safari: 22 minutes<br>Messages: 16 minutes<br>Phone: 14 minutes<br>Mail: 10 minutes<br>72 Avg Pickups </p>
 		</div>
 	</div>
 	<div class="phone">
-		<img class="gif" src="friday.png" style="width:320px;height:568;">
-		<div class="info">
+		<img class="gif3" src="friday.png" style="width:320px;height:568;">
+		<div class="info3">
 			<p><h4>Average Friday</h4><br>Total Time: 3 hours 18 minutes<br>Phone: 78 minutes<br>Home Screen: 38 minutes<br>Safari: 34 minutes<br>Messages: 19 minutes<br>Instagram: 17 minutes<br>Spotify: 12 minutes<br>103 Avg Pickups </p>
 		</div>	
 	</div>
@@ -51,12 +69,12 @@ body {
 <script>
     $(document).ready(function()
 	{
-	    $(".gif").hover(
+	    $(".gif1").hover(
 	        function()
 	        {
 	          var src = $(this).attr("src");
 	          $(this).attr("src", src.replace(/\.png$/i, ".gif"));
-	          $(".phone .info").show();
+	          $(".phone .info1").show();
 	         
 			 
 				        },
@@ -65,6 +83,39 @@ body {
 	          var src = $(this).attr("src");
 	          var phone = $(".phone .info").style;
 	          $(this).attr("src", src.replace(/\.gif$/i, ".png"));
+	          $(".phone .info1").hide();
+	        });
+	    $(".gif2").hover(
+	        function()
+	        {
+	          var src = $(this).attr("src");
+	          $(this).attr("src", src.replace(/\.png$/i, ".gif"));
+	          $(".phone .info2").show();
+	         
+			 
+				        },
+	        function()
+	        {
+	          var src = $(this).attr("src");
+	          var phone = $(".phone .info").style;
+	          $(this).attr("src", src.replace(/\.gif$/i, ".png"));
+	          $(".phone .info2").hide();
+	        });
+	    $(".gif3").hover(
+	        function()
+	        {
+	          var src = $(this).attr("src");
+	          $(this).attr("src", src.replace(/\.png$/i, ".gif"));
+	          $(".phone .info3").show();
+	         
+			 
+				        },
+	        function()
+	        {
+	          var src = $(this).attr("src");
+	          var phone = $(".phone .info").style;
+	          $(this).attr("src", src.replace(/\.gif$/i, ".png"));
+	          $(".phone .info3").hide();
 	        });
 	});
 </script>
