@@ -9,34 +9,42 @@ body {
 	font-family: sansation;
 }
 .info {
-	float: Left;
-	width: 20%;
+	float: left;
+	display:none;
 }
 .gif {
-	float: Right;
-	width: 80%
+	float:right;
+    margin: 0 auto;
+	
+}
+.phone {
+	margin-top:40px;
+	width:800px;
+    height:800px;
+    margin-right:10px;
+	margin-bottom: 60px;
+	float:left;
 }
 </style>
 </head>
 <body bgcolor="black">
-	<div>
+	<div class="phone">
 		<img class="gif" src="avg.png" style="width:320px;height:568;">
 		<div class="info">
 			<p><h4>Total Average</h4>Total Time: 2 hours 42 minutes<br>Home Screen: 43 minutes<br>Phone: 38 minutes<br>Music: 25 minutes<br>Safari: 24 minutes<br>Messages: 20 minutes<br>Instagram: 16 minutes<br>84 Avg Pickups </p>
 		</div>
-		
 	</div>
-	<div>
+	<div class="phone">
 		<img class="gif" src="monday.png" style="width:320px;height:568;">
 		<div class="info">
-			<p><h4>Average Monday</h4><br>Total Time: 2 hours 9 minutes<br>Home Screen: 45 minutes<br>Instagram: 22 minutes<br>Safari: 22 minutes<br>Messages: 16 minutes<br>Phone: 14 minutes<br>Mail: 10 minutes<br>72 Avg Pickups </p>
+			<p><h4>Average Monday</h4>Total Time: 2 hours 9 minutes<br>Home Screen: 45 minutes<br>Instagram: 22 minutes<br>Safari: 22 minutes<br>Messages: 16 minutes<br>Phone: 14 minutes<br>Mail: 10 minutes<br>72 Avg Pickups </p>
 		</div>
 	</div>
-	<div>
+	<div class="phone">
 		<img class="gif" src="friday.png" style="width:320px;height:568;">
-		<div>
-			<p><h4>Average Friday</h4><br>Total Time: 3 hours 18 minutes<br>Phone: 78 minutes<br>Home Screen: 38 minutes<br>Safari: 34 minutes<br>Messages: 19 minutes<br>Instagram: 17 minutes<br>Spotify: 12 minutes<br>103 Avg Pickups </p>	
-		</div>
+		<div class="info">
+			<p><h4>Average Friday</h4><br>Total Time: 3 hours 18 minutes<br>Phone: 78 minutes<br>Home Screen: 38 minutes<br>Safari: 34 minutes<br>Messages: 19 minutes<br>Instagram: 17 minutes<br>Spotify: 12 minutes<br>103 Avg Pickups </p>
+		</div>	
 	</div>
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
@@ -48,10 +56,14 @@ body {
 	        {
 	          var src = $(this).attr("src");
 	          $(this).attr("src", src.replace(/\.png$/i, ".gif"));
-	        },
+	          $(".phone .info").show();
+	         
+			 
+				        },
 	        function()
 	        {
 	          var src = $(this).attr("src");
+	          var phone = $(".phone .info").style;
 	          $(this).attr("src", src.replace(/\.gif$/i, ".png"));
 	        });
 	});
