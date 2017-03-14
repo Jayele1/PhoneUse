@@ -8,6 +8,42 @@ body {
 	color:white;
 	font-family: 'Nunito', sans-serif;
 }
+.modal_text {
+	color:black;
+}
+.modal {
+    display: block; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
 .info {
 	float: left;
 	display:none;
@@ -26,6 +62,12 @@ body {
 </style>
 </head>
 <body bgcolor="black">
+	<div id="myModal" class="modal">
+	  <div class="modal-content">
+	    <span class="close">&times;</span>
+	    <p class="modal_text">Welcome,<br><br> This Personal Project was to visualize my own Phone use Behavior, I tracked my own phone data for 4 weeks. So my thought was to best show my phone behavior using my phone. Each Flash of the gif represents a individual phone pickup. The picture that flashes on the screen represent the app i was using. Its ordered for least to most used apps. The total number of flashes is equal to the number of times I picked up my phone.   <br><br> Hover over the image to Begin!</p>
+	  </div>
+	</div>
 	<div class="phone">
 		<img id="gif1" class="gif" src="avg.png" style="width:320px;height:568;">
 		<div id="info1" class="info">
@@ -98,5 +140,26 @@ body {
 	          $(".phone #info3").hide();
 	        });
 	});
+
+		// Get the modal
+	var modal = document.getElementById('myModal');
+
+	// Get the button that opens the modal
+	var btn = document.getElementById("myBtn");
+
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	    modal.style.display = "none";
+	}
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	    if (event.target == modal) {
+	        modal.style.display = "none";
+	    }
+	}
 </script>
 </html>
