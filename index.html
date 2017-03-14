@@ -1,44 +1,25 @@
 <!doctype html>
 <html>
 <head>
-	<title>Phone Log</title>
-	
+	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+	<title>Phone Log</title>	
 <style> 
 body {
 	color:white;
-	font-family: sansation;
+	font-family: 'Nunito', sans-serif;
 }
-.info1 {
+.info {
 	float: left;
 	display:none;
 }
-.gif1 {
-	float:right;
-	
+.gif {
+	float:right;	
 }
-.info2 {
-	float: left;
-	display:none;
-}
-.gif2 {
-	float:right;
-    margin: 0 auto;
-	
-}
-.info3 {
-	float: left;
-	display:none;
-}
-.gif3 {
-	float:right;
-    margin: 0 auto;
-	
-}
+
 .phone {
-	margin-top:10%;
 	width:70%;
     height:60%;
-    margin-right:20%;
+    margin: 0 auto;
 	margin-bottom: 40%;
 	float: left;
 }
@@ -46,21 +27,21 @@ body {
 </head>
 <body bgcolor="black">
 	<div class="phone">
-		<img class="gif1" src="avg.png" style="width:320px;height:568;">
-		<div class="info1">
-			<p><h4>Total Average</h4>Total Time: 2 hours 42 minutes<br>Home Screen: 43 minutes<br>Phone: 38 minutes<br>Music: 25 minutes<br>Safari: 24 minutes<br>Messages: 20 minutes<br>Instagram: 16 minutes<br>84 Avg Pickups </p>
+		<img id="gif1" class="gif" src="avg.png" style="width:320px;height:568;">
+		<div id="info1" class="info">
+			<p><h3>Total Average</h3>Total Time: &nbsp 2 hours 42 minutes<br><br>Home Screen: &nbsp 43 minutes<br>Phone: &nbsp 38 minutes<br>Music: &nbsp 25 minutes<br>Safari: &nbsp 24 minutes<br>Messages: &nbsp 20 minutes<br>Instagram: &nbsp 16 minutes<br><br>Avg 84 Pickups </p>
 		</div>
 	</div>
 	<div class="phone">
-		<img class="gif2" src="monday.png" style="width:320px;height:568;">
-		<div class="info2">
-			<p><h4>Average Monday</h4>Total Time: 2 hours 9 minutes<br>Home Screen: 45 minutes<br>Instagram: 22 minutes<br>Safari: 22 minutes<br>Messages: 16 minutes<br>Phone: 14 minutes<br>Mail: 10 minutes<br>72 Avg Pickups </p>
+		<img id="gif2" class="gif" src="monday.png" style="width:320px;height:568;">
+		<div id="info2" class="info2">
+			<p><h3>Average Monday</h3>Total Time: &nbsp 2 hours 9 minutes<br><br>Home Screen: &nbsp 45 minutes<br>Instagram: &nbsp 22 minutes<br>Safari: &nbsp 22 minutes<br>Messages: &nbsp 16 minutes<br>Phone: &nbsp 14 minutes<br>Mail: &nbsp 10 minutes<br><br>Avg 72 Pickups </p>
 		</div>
 	</div>
 	<div class="phone">
-		<img class="gif3" src="friday.png" style="width:320px;height:568;">
-		<div class="info3">
-			<p><h4>Average Friday</h4><br>Total Time: 3 hours 18 minutes<br>Phone: 78 minutes<br>Home Screen: 38 minutes<br>Safari: 34 minutes<br>Messages: 19 minutes<br>Instagram: 17 minutes<br>Spotify: 12 minutes<br>103 Avg Pickups </p>
+		<img id="gif3" class="gif" src="friday.png" style="width:320px;height:568;">
+		<div id="info3" class="info3">
+			<p><h3>Average Friday</h3>Total Time: &nbsp 3 hours 18 minutes<br><br>Phone: &nbsp 78 minutes<br>Home Screen: &nbsp 38 minutes<br>Safari: &nbsp 34 minutes<br>Messages: &nbsp 19 minutes<br>Instagram: &nbsp 17 minutes<br>Spotify: &nbsp 12 minutes<br><br>Avg 103 Pickups </p>
 		</div>	
 	</div>
 </body>
@@ -68,12 +49,12 @@ body {
 <script>
     $(document).ready(function()
 	{
-	    $(".gif1").hover(
+	    $("#gif1").hover(
 	        function()
 	        {
 	          var src = $(this).attr("src");
 	          $(this).attr("src", src.replace(/\.png$/i, ".gif"));
-	          $(".phone .info1").show();
+	          $(".phone #info1").show();
 	         
 			 
 				        },
@@ -82,14 +63,14 @@ body {
 	          var src = $(this).attr("src");
 	          var phone = $(".phone .info").style;
 	          $(this).attr("src", src.replace(/\.gif$/i, ".png"));
-	          $(".phone .info1").hide();
+	          $(".phone #info1").hide();
 	        });
-	    $(".gif2").hover(
+	    $("#gif2").hover(
 	        function()
 	        {
 	          var src = $(this).attr("src");
 	          $(this).attr("src", src.replace(/\.png$/i, ".gif"));
-	          $(".phone .info2").show();
+	          $(".phone #info2").show();
 	         
 			 
 				        },
@@ -98,14 +79,14 @@ body {
 	          var src = $(this).attr("src");
 	          var phone = $(".phone .info").style;
 	          $(this).attr("src", src.replace(/\.gif$/i, ".png"));
-	          $(".phone .info2").hide();
+	          $(".phone #info2").hide();
 	        });
-	    $(".gif3").hover(
+	    $("#gif3").hover(
 	        function()
 	        {
 	          var src = $(this).attr("src");
 	          $(this).attr("src", src.replace(/\.png$/i, ".gif"));
-	          $(".phone .info3").show();
+	          $(".phone #info3").show();
 	         
 			 
 				        },
@@ -114,7 +95,7 @@ body {
 	          var src = $(this).attr("src");
 	          var phone = $(".phone .info").style;
 	          $(this).attr("src", src.replace(/\.gif$/i, ".png"));
-	          $(".phone .info3").hide();
+	          $(".phone #info3").hide();
 	        });
 	});
 </script>
