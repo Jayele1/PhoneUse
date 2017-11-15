@@ -57,7 +57,7 @@ body {
 .phone {
 	 margin: auto;
     	width: 50%;
-    	padding: 30px;
+    	padding: 15px;
 }
 </style>
 </head>
@@ -91,7 +91,7 @@ body {
 	        {
 	          var src = $(this).attr("src");
 	          $(this).attr("src", src.replace(/\.png$/i, ".gif"));
-	          $(".phone #info1").show();
+	          $("#info1").show();
 	         
 			 
 				        },
@@ -100,39 +100,39 @@ body {
 	          var src = $(this).attr("src");
 	          var phone = $(".info").style;
 	          $(this).attr("src", src.replace(/\.gif$/i, ".png"));
-	          $(".phone #info1").hide();
+	          $("#info1").hide();
 	        });
 	    $("#gif2").hover(
 	        function()
 	        {
 	          var src = $(this).attr("src");
 	          $(this).attr("src", src.replace(/\.png$/i, ".gif"));
-	          $(".phone #info2").show();
+	          $("#info2").show();
 	         
 			 
 				        },
 	        function()
 	        {
 	          var src = $(this).attr("src");
-	          var phone = $(".phone .info").style;
+	          var phone = $(".info").style;
 	          $(this).attr("src", src.replace(/\.gif$/i, ".png"));
-	          $(".phone #info2").hide();
+	          $("#info2").hide();
 	        });
 	    $("#gif3").hover(
 	        function()
 	        {
 	          var src = $(this).attr("src");
 	          $(this).attr("src", src.replace(/\.png$/i, ".gif"));
-	          $(".phone #info3").show();
+	          $("#info3").show();
 	         
 			 
 				        },
 	        function()
 	        {
 	          var src = $(this).attr("src");
-	          var phone = $(".phone .info").style;
+	          var phone = $(".info").style;
 	          $(this).attr("src", src.replace(/\.gif$/i, ".png"));
-	          $(".phone #info3").hide();
+	          $("#info3").hide();
 	        });
 	});
 
