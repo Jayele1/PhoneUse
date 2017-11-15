@@ -45,7 +45,7 @@ body {
     cursor: pointer;
 }
 .info {
-	
+	float:left;
 }
 .gif {
 	display: block;
@@ -98,7 +98,7 @@ body {
 	        function()
 	        {
 	          var src = $(this).attr("src");
-	          var phone = $(".phone .info").style;
+	          var phone = $(".info").style;
 	          $(this).attr("src", src.replace(/\.gif$/i, ".png"));
 	          $(".phone #info1").hide();
 	        });
