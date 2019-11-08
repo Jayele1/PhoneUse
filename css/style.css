@@ -1,4 +1,4 @@
-{
+body {
 	color:white;
 	font-family: 'Nunito', sans-serif;
 }
@@ -39,11 +39,12 @@
     cursor: pointer;
 }
 .info {
-	float: left;
 	display:none;
 }
 .gif {
-	float:right;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .phone {
