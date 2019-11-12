@@ -1,6 +1,6 @@
 body {
 	color:white;
-	font-family: 'Nunito', sans-serif;
+	font-family:Inconsolata, monospace;
 }
 .modal_text {
 	color:black;
@@ -39,9 +39,13 @@ body {
     cursor: pointer;
 }
 .info {
-	display:none;
+	display: none;
+	position: absolute;
+  top: 50px;
+  left: 10px;
 }
 .gif {
+	padding-top: 50px;
 	display: block;
 	margin-right: auto;
 	margin-left: auto;
