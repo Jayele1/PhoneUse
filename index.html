@@ -1,24 +1,209 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	<title>Phone Log</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <title>Phone Usage Data Viz</title>
 </head>
-<body bgcolor="black">
-	<div id="myModal" class="modal">
-	  <div class="modal-content">
-	    <span class="close">&times;</span>
-	    <p class="modal_text">Welcome,<br><br> The goal of this personal project was to visualize my own phone use behavior. I tracked my own phone data for 4 weeks. Each flash of the gif represents an individual instance of me picking up my phone (Picking up the phone and atleast turning on the home screen). The picture that flashes on the screen represents the app I was using. The number of times an app flashes is proportional to how much time I spent using that app. I ordered the apps to flash from least to most used. Lastly the total number of flashes is equal to the average number of times I picked up my phone.   <br><br> Hover/Tap over the image to Begin! (It may take a second to start, stay hovering over the image untill it finishes)</p>
-	  </div>
-	</div>
-	<div class="phone">
-		<img id="gif1" class="gif" src="img/avg.png" style="width:320px;height:568;">
-		<div id="info1" class="info">
-			<p><h3>Total Average</h3>Total Time: &nbsp 2 hours 42 minutes<br><br>Home Screen: &nbsp 43 minutes<br>Phone: &nbsp 38 minutes<br>Music: &nbsp 25 minutes<br>Safari: &nbsp 24 minutes<br>Messages: &nbsp 20 minutes<br>Instagram: &nbsp 16 minutes<br><br>Avg 84 Pickups </p>
-		</div>
-	</div>
+<body>
+    <!-- Welcome Modal -->
+    <div id="welcomeModal" class="modal active">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+
+            <div class="modal-content">
+                <div class="modal-badge">DATA VISUALIZATION</div>
+                <h1 class="modal-title">Phone Usage Study</h1>
+
+                <div class="modal-body">
+                    <p class="modal-intro">A 4-week personal experiment visualizing my phone behavior through interactive data.</p>
+
+                    <div class="modal-section">
+                        <h3 class="section-title">How It Works</h3>
+                        <ul class="info-list">
+                            <li><span class="highlight">Each flash</span> = one phone pickup</li>
+                            <li><span class="highlight">App frequency</span> = proportional to usage time</li>
+                            <li><span class="highlight">Order</span> = least to most used apps</li>
+                        </ul>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3 class="section-title">Methodology</h3>
+                        <p class="method-text">Tracked every instance of unlocking my phone and viewing the home screen over 28 days. Apps are ordered by usage duration, with flash frequency matching actual behavior patterns.</p>
+                    </div>
+                </div>
+
+                <button class="cta-button">
+                    <span>View Visualization</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10 0L8.59 1.41L15.17 8H0V10H15.17L8.59 16.59L10 18L18 10L10 0Z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+        <header class="header">
+            <h1 class="site-title">Phone Usage Visualization</h1>
+            <div class="header-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Study Duration</span>
+                    <span class="meta-value">4 Weeks</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Data Points</span>
+                    <span class="meta-value">2,352</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Centered Phone Visualization -->
+        <section class="viz-section">
+            <div class="phone-wrapper">
+                <div class="phone-display">
+                    <div class="phone-screen">
+                        <img id="phoneViz"
+                             class="phone-image"
+                             src="img/avg.png"
+                             alt="Phone usage visualization"
+                             width="320"
+                             height="568">
+                    </div>
+
+                    <!-- Playback Controls -->
+                    <div class="controls">
+                        <button id="playBtn" class="control-btn primary" aria-label="Play visualization">
+                            <svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <span>Play</span>
+                        </button>
+                        <button id="pauseBtn" class="control-btn" aria-label="Pause visualization" disabled>
+                            <svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                            </svg>
+                            <span>Pause</span>
+                        </button>
+                        <button id="restartBtn" class="control-btn" aria-label="Restart visualization">
+                            <svg class="icon-restart" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
+                            </svg>
+                            <span>Restart</span>
+                        </button>
+                    </div>
+
+                    <!-- Status Indicator -->
+                    <div class="status-bar">
+                        <span class="status-dot"></span>
+                        <span id="statusText" class="status-text">Ready to play</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collapsible Stats Panel -->
+        <section class="stats-section">
+            <button class="stats-toggle" id="statsToggle" aria-expanded="false">
+                <div class="toggle-header">
+                    <h2 class="toggle-title">View Data Metrics</h2>
+                    <div class="toggle-meta">
+                        <span class="meta-badge">84 Avg Pickups</span>
+                        <span class="meta-badge">2h 42m Daily</span>
+                    </div>
+                </div>
+                <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+
+            <div class="stats-content" id="statsContent">
+                <div class="stats-grid">
+                    <!-- Daily Average Card -->
+                    <div class="stat-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Daily Average</h3>
+                            <span class="card-badge">84 Pickups</span>
+                        </div>
+
+                        <div class="total-time">
+                            <span class="time-label">Total Screen Time</span>
+                            <span class="time-value">2h 42m</span>
+                        </div>
+
+                        <div class="app-breakdown">
+                            <h4 class="breakdown-title">Top Applications</h4>
+                            <ul class="app-list">
+                                <li class="app-item">
+                                    <div class="app-header">
+                                        <span class="app-name">Home Screen</span>
+                                        <span class="app-time">43m</span>
+                                    </div>
+                                    <div class="app-bar-container">
+                                        <div class="app-bar" style="--percentage: 26.7%"></div>
+                                    </div>
+                                </li>
+                                <li class="app-item">
+                                    <div class="app-header">
+                                        <span class="app-name">Phone</span>
+                                        <span class="app-time">38m</span>
+                                    </div>
+                                    <div class="app-bar-container">
+                                        <div class="app-bar" style="--percentage: 23.5%"></div>
+                                    </div>
+                                </li>
+                                <li class="app-item">
+                                    <div class="app-header">
+                                        <span class="app-name">Music</span>
+                                        <span class="app-time">25m</span>
+                                    </div>
+                                    <div class="app-bar-container">
+                                        <div class="app-bar" style="--percentage: 15.4%"></div>
+                                    </div>
+                                </li>
+                                <li class="app-item">
+                                    <div class="app-header">
+                                        <span class="app-name">Safari</span>
+                                        <span class="app-time">24m</span>
+                                    </div>
+                                    <div class="app-bar-container">
+                                        <div class="app-bar" style="--percentage: 14.8%"></div>
+                                    </div>
+                                </li>
+                                <li class="app-item">
+                                    <div class="app-header">
+                                        <span class="app-name">Messages</span>
+                                        <span class="app-time">20m</span>
+                                    </div>
+                                    <div class="app-bar-container">
+                                        <div class="app-bar" style="--percentage: 12.3%"></div>
+                                    </div>
+                                </li>
+                                <li class="app-item">
+                                    <div class="app-header">
+                                        <span class="app-name">Instagram</span>
+                                        <span class="app-time">16m</span>
+                                    </div>
+                                    <div class="app-bar-container">
+                                        <div class="app-bar" style="--percentage: 9.9%"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/index.js"></script>
 </body>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-<script src="js/index.js" type="text/javascript"></script>
 </html>
