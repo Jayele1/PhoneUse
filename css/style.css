@@ -3,24 +3,26 @@
    ================================ */
 
 :root {
-    /* Warm, Natural Color Palette */
-    --color-bg: #1a1816;
-    --color-surface: #252220;
-    --color-surface-elevated: #2f2c29;
-    --color-text: #e8e3dd;
-    --color-text-secondary: #b8afa6;
-    --color-text-muted: #8a8075;
-    --color-primary: #c9a77c;
-    --color-primary-light: #d9ba96;
-    --color-secondary: #9b8b7e;
-    --color-accent: #a88f7a;
-    --color-border: #3a3630;
-    --color-border-light: #4a443d;
-    --color-overlay: rgba(26, 24, 22, 0.92);
+    /* Palette matched to jayele1.github.io: moss green, cream mats,
+       ink text, and a pop of blue. */
+    --color-bg: #3b4020;
+    --color-bg-deep: #262a14;
+    --color-surface: #efe2bd;
+    --color-surface-elevated: #e4d6a4;
+    --color-ink: #1c1f10;
+    --color-ink-secondary: rgba(28, 31, 16, 0.62);
+    --color-text: #ece6d0;
+    --color-text-secondary: rgba(236, 230, 208, 0.72);
+    --color-highlight: #e4d6a4;
+    --color-primary: #0032f9;
+    --color-primary-hover: #0024ba;
+    --color-border: #c9b989;
+    --color-overlay: rgba(38, 42, 20, 0.85);
 
-    /* Typography - Natural, Human Fonts */
-    --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-    --font-mono: 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+    /* Typography matched to jayele1.github.io */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    --font-display: 'Sorts Mill Goudy', 'Georgia', serif;
+    --font-mono: 'Share Tech Mono', 'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
 
     /* Reduced Spacing for Viewport Fit */
     --spacing-xs: 0.375rem;
@@ -50,7 +52,7 @@
 
 body {
     font-family: var(--font-primary);
-    background: var(--color-bg);
+    background: radial-gradient(ellipse at top, var(--color-bg) 0%, var(--color-bg-deep) 100%);
     color: var(--color-text);
     line-height: 1.5;
     overflow-x: hidden;
@@ -93,7 +95,7 @@ body {
     width: 90%;
     max-width: 560px;
     background: var(--color-surface);
-    border: 1px solid var(--color-border-light);
+    border: 1px solid var(--color-border);
     border-radius: 12px;
     box-shadow: var(--shadow-xl);
     transform: translateY(20px) scale(0.95);
@@ -130,12 +132,12 @@ body {
 }
 
 .modal-close:hover {
-    background: var(--color-border-light);
+    background: var(--color-border);
     border-color: var(--color-primary);
 }
 
 .modal-close svg {
-    color: var(--color-text-secondary);
+    color: var(--color-ink-secondary);
 }
 
 .modal-content {
@@ -145,10 +147,10 @@ body {
 .modal-badge {
     display: inline-block;
     background: var(--color-primary);
-    color: var(--color-bg);
+    color: var(--color-surface);
     font-family: var(--font-mono);
     font-size: 0.6875rem;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 0.05em;
     padding: 0.375rem 0.75rem;
     margin-bottom: var(--spacing-md);
@@ -156,11 +158,12 @@ body {
 }
 
 .modal-title {
+    font-family: var(--font-display);
     font-size: clamp(1.5rem, 4vw, 2rem);
-    font-weight: 600;
+    font-weight: 400;
     line-height: 1.25;
     margin-bottom: var(--spacing-md);
-    color: var(--color-text);
+    color: var(--color-ink);
 }
 
 .modal-body {
@@ -169,7 +172,7 @@ body {
 
 .modal-intro {
     font-size: 0.9375rem;
-    color: var(--color-text-secondary);
+    color: var(--color-ink-secondary);
     margin-bottom: var(--spacing-lg);
     line-height: 1.6;
 }
@@ -198,7 +201,7 @@ body {
     font-size: 0.875rem;
     padding-left: var(--spacing-md);
     position: relative;
-    color: var(--color-text-secondary);
+    color: var(--color-ink-secondary);
 }
 
 .info-list li::before {
@@ -210,20 +213,20 @@ body {
 }
 
 .highlight {
-    color: var(--color-text);
+    color: var(--color-ink);
     font-weight: 500;
 }
 
 .method-text {
     font-size: 0.875rem;
-    color: var(--color-text-secondary);
+    color: var(--color-ink-secondary);
     line-height: 1.6;
 }
 
 .cta-button {
     width: 100%;
     background: var(--color-primary);
-    color: var(--color-bg);
+    color: var(--color-surface);
     border: none;
     padding: var(--spacing-sm) var(--spacing-md);
     font-family: var(--font-primary);
@@ -240,7 +243,7 @@ body {
 }
 
 .cta-button:hover {
-    background: var(--color-primary-light);
+    background: var(--color-primary-hover);
     transform: translateY(-1px);
     box-shadow: var(--shadow-md);
 }
@@ -267,11 +270,12 @@ body {
 }
 
 .site-title {
+    font-family: var(--font-display);
     font-size: clamp(1.375rem, 3.5vw, 1.875rem);
-    font-weight: 600;
+    font-weight: 400;
     margin-bottom: var(--spacing-sm);
     color: var(--color-text);
-    letter-spacing: -0.01em;
+    letter-spacing: 0.01em;
 }
 
 .header-meta {
@@ -290,7 +294,7 @@ body {
 
 .meta-label {
     font-size: 0.6875rem;
-    color: var(--color-text-muted);
+    color: var(--color-text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.03em;
 }
@@ -298,7 +302,7 @@ body {
 .meta-value {
     font-size: 1rem;
     font-weight: 600;
-    color: var(--color-primary-light);
+    color: var(--color-highlight);
 }
 
 /* ================================
@@ -332,7 +336,7 @@ body {
 
 .phone-screen:hover {
     box-shadow: var(--shadow-xl);
-    border-color: var(--color-border-light);
+    border-color: var(--color-primary);
 }
 
 .phone-image {
@@ -359,10 +363,10 @@ body {
     justify-content: center;
     gap: var(--spacing-xs);
     padding: var(--spacing-xs) var(--spacing-sm);
-    background: var(--color-surface);
+    background: var(--color-surface-elevated);
     border: 1px solid var(--color-border);
     border-radius: 8px;
-    color: var(--color-text-secondary);
+    color: var(--color-ink-secondary);
     font-family: var(--font-primary);
     font-size: 0.75rem;
     font-weight: 500;
@@ -373,8 +377,8 @@ body {
 }
 
 .control-btn:hover:not(:disabled) {
-    background: var(--color-surface-elevated);
-    color: var(--color-text);
+    background: var(--color-border);
+    color: var(--color-ink);
     border-color: var(--color-primary);
 }
 
@@ -385,12 +389,12 @@ body {
 .control-btn.primary {
     background: var(--color-primary);
     border-color: var(--color-primary);
-    color: var(--color-bg);
+    color: var(--color-surface);
 }
 
 .control-btn.primary:hover:not(:disabled) {
-    background: var(--color-primary-light);
-    border-color: var(--color-primary-light);
+    background: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
 }
 
 .control-btn:disabled {
@@ -413,7 +417,7 @@ body {
     gap: var(--spacing-xs);
     margin-top: var(--spacing-sm);
     padding: var(--spacing-xs) var(--spacing-sm);
-    background: var(--color-surface);
+    background: var(--color-surface-elevated);
     border: 1px solid var(--color-border);
     border-radius: 6px;
     font-size: 0.75rem;
@@ -439,16 +443,16 @@ body {
 }
 
 .status-text {
-    color: var(--color-text-secondary);
+    color: var(--color-ink-secondary);
 }
 
 .status-bar.playing .status-dot {
-    background: var(--color-secondary);
+    background: var(--color-border);
     animation: statusPulse 1s ease-in-out infinite;
 }
 
 .status-bar.paused .status-dot {
-    background: #c9a77c;
+    background: var(--color-highlight);
     animation: none;
 }
 
@@ -473,7 +477,7 @@ body {
     justify-content: space-between;
     gap: var(--spacing-sm);
     transition: all var(--transition-base);
-    color: var(--color-text);
+    color: var(--color-ink);
 }
 
 .stats-toggle:hover {
@@ -497,9 +501,10 @@ body {
 }
 
 .toggle-title {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--color-text);
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    font-weight: 400;
+    color: var(--color-ink);
 }
 
 .toggle-meta {
@@ -511,14 +516,14 @@ body {
 .meta-badge {
     font-size: 0.6875rem;
     font-weight: 500;
-    color: var(--color-primary-light);
-    background: rgba(201, 167, 124, 0.12);
+    color: var(--color-primary);
+    background: rgba(0, 50, 249, 0.1);
     padding: 0.1875rem 0.4375rem;
     border-radius: 4px;
 }
 
 .toggle-icon {
-    color: var(--color-text-secondary);
+    color: var(--color-ink-secondary);
     transition: transform var(--transition-base);
     flex-shrink: 0;
 }
@@ -565,16 +570,17 @@ body {
 }
 
 .card-title {
-    font-size: 1rem;
-    font-weight: 600;
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 400;
     color: var(--color-text);
 }
 
 .card-badge {
     font-size: 0.75rem;
     font-weight: 500;
-    color: var(--color-primary-light);
-    background: rgba(201, 167, 124, 0.12);
+    color: var(--color-highlight);
+    background: rgba(228, 214, 164, 0.14);
     padding: 0.3125rem 0.625rem;
     border-radius: 5px;
 }
@@ -585,8 +591,8 @@ body {
     gap: 0.125rem;
     margin-bottom: var(--spacing-md);
     padding: var(--spacing-sm);
-    background: rgba(201, 167, 124, 0.08);
-    border-left: 2px solid var(--color-primary);
+    background: rgba(228, 214, 164, 0.08);
+    border-left: 2px solid var(--color-highlight);
     border-radius: 6px;
 }
 
@@ -594,14 +600,14 @@ body {
     font-size: 0.6875rem;
     text-transform: uppercase;
     letter-spacing: 0.03em;
-    color: var(--color-text-muted);
+    color: var(--color-text-secondary);
 }
 
 .time-value {
     font-size: 1.875rem;
     font-weight: 600;
     line-height: 1;
-    color: var(--color-primary-light);
+    color: var(--color-highlight);
 }
 
 .breakdown-title {
@@ -609,7 +615,7 @@ body {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.03em;
-    color: var(--color-text-muted);
+    color: var(--color-text-secondary);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -641,13 +647,13 @@ body {
 .app-time {
     font-size: 0.75rem;
     font-weight: 500;
-    color: var(--color-secondary);
+    color: var(--color-text-secondary);
 }
 
 .app-bar-container {
     width: 100%;
     height: 5px;
-    background: var(--color-surface-elevated);
+    background: rgba(236, 230, 208, 0.15);
     border-radius: 2.5px;
     overflow: hidden;
 }
